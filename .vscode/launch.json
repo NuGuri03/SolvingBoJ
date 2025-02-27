@@ -3,9 +3,9 @@
     "configurations": [
         {
             "type": "node-terminal",
-            "command": "cmd /c \"cd /d ${fileDirname} && g++ -std=c++23 -I${workspaceFolder}\\include ${file} -o ${workspaceFolder}\\build\\a && ${workspaceFolder}\\build\\a.exe & pause\"",
             "request": "launch",
-            "name": "C++"
+            "name": "cpp",
+            "command": "cmd /c \"cd /d ${fileDirname} && g++ -std=c++23 -I${workspaceFolder}\\include ${file} -o ${workspaceFolder}\\build\\cpp && ${workspaceFolder}\\build\\cpp.exe & pause\""
         }
     ]
 }
