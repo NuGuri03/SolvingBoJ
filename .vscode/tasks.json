@@ -6,7 +6,7 @@
     "presentation": { "reveal": "always" },
     "tasks": [
         {
-            "label": "[C++] : Build with g++",
+            "label": "compile for C/C++",
             "command": "g++",
             "args": [
                 "-std=c++23",
@@ -14,7 +14,7 @@
                 "${workspaceFolder}\\include",
                 "${file}",
                 "-o",
-                "${workspaceFolder}\\build\\a.exe"
+                "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe"
             ],
             "group": { "kind": "build", "isDefault": true },
             "problemMatcher": {
@@ -32,12 +32,13 @@
                 }
             }
         },
+        
         {
-            "label": "[C++] : Execute with cmd",
+            "label": "execute with cmd",
             "command": "cmd.exe",
             "args": [
                 "/C",
-                "\"${workspaceFolder}\\build\\a.exe & pause\""
+                "\"${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe & pause\""
             ],
             "group": { "kind": "test", "isDefault": false }
         }

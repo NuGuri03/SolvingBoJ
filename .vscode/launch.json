@@ -5,7 +5,7 @@
             "type": "node-terminal",
             "request": "launch",
             "name": "cpp",
-            "command": "cmd /c \"cd /d ${fileDirname} && g++ -std=c++23 -I${workspaceFolder}\\include ${file} -o ${workspaceFolder}\\build\\cpp && ${workspaceFolder}\\build\\cpp.exe & pause\""
+            "command": "cmd /c \"cd /d ${fileDirname} && g++ -std=c++23 ${file} -o ${workspaceFolder}\\build\\cpp && ${workspaceFolder}\\build\\cpp.exe & pause\""
         }
     ]
 }

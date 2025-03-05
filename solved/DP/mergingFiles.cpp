@@ -11,21 +11,25 @@ void print(vector<vector<int>>& v) {
 
 int sol(vector<int>& v, int n) {
     vector<vector<int>> dp(n + 2, vector<int>(n + 1, 0));
+    
+    //init dp
     for (int i = n; i >= 1; i--) {
         for (int j = i; j <= n; j++) {
-            dp[i][j] = dp[i+1][j] + v[i];
+            dp[i][j] = dp[i+1][j] + v[i - 1];
         }
     }
-    // for (int i = n; i >= 1; i--) {
-    //     for (int j = i + 2; j <= n; j++) {
-    //         int value = INT_MAX;
-    //         for (int k = i + 1; k <= j; k++) {
-    //             value = min(value, dp[k][j] + dp[i][k-1]);
-    //         }
-    //         dp[i][j] += value;
-    //     }
-    // }
-    print(dp);
+    // //dp
+    for (int i = n; i >= 1; i--) {
+        for (int j = i + 2; j <= n; j++) {
+            int value = min(dp[i][j - 1], dp[i+1][j]);
+            for (int k = j - 2; k >=  i; k--) {
+                value = min(value, dp[i][k] + dp[k + 1][j]);
+            }
+            dp[i][j] += value;
+        }
+    }
+    // cout << '\n';
+    // print(dp);
     return dp[1][n];
 }
 
@@ -38,8 +42,8 @@ int main() {
     while (t--) {
         int k;
         cin >> k;
-        vector<int> vec(k + 1, 0);
-        for (int i = 1; i <= k; i++) cin >> vec[i];
+        vector<int> vec(k, 0);
+        for (int i = 0; i < k; i++) cin >> vec[i];
         result.push_back(sol(vec, k));
     }
     for (int& v : result) cout << v << '\n';
