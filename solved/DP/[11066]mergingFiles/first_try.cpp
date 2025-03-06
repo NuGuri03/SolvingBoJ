@@ -2,17 +2,10 @@
 #define fastio ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 using namespace std;
 
-void print(vector<vector<int>>& v) {
-    for (auto& row : v) {
-        for (auto& ele : row) cout << ele << ' ';
-        cout << '\n';
-    }
-}
-
-int sol(vector<int>& v, int n) {
+int merge(vector<int>& v, int n) {
     vector<vector<int>> dp(n + 2, vector<int>(n + 1, 0));
     
-    //init dp
+    //init dp()
     for (int i = n; i >= 1; i--) {
         for (int j = i; j <= n; j++) {
             dp[i][j] = dp[i+1][j] + v[i - 1];
@@ -28,8 +21,6 @@ int sol(vector<int>& v, int n) {
             dp[i][j] += value;
         }
     }
-    // cout << '\n';
-    // print(dp);
     return dp[1][n];
 }
 
@@ -44,7 +35,7 @@ int main() {
         cin >> k;
         vector<int> vec(k, 0);
         for (int i = 0; i < k; i++) cin >> vec[i];
-        result.push_back(sol(vec, k));
+        result.push_back(merge(vec, k));
     }
     for (int& v : result) cout << v << '\n';
 }
