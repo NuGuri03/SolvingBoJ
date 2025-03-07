@@ -2,10 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node-terminal",
+            "type": "cppdbg",
             "request": "launch",
             "name": "cpp",
-            "command": "cmd /c \"cd /d ${fileDirname} && g++ -std=c++23 ${file} -o ${workspaceFolder}\\build\\cpp && ${workspaceFolder}\\build\\cpp.exe & pause\""
+            // "preLaunchTask": "compile for C/C++",
+            "program": "${workspaceFolder}/build/cpp.exe",
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "externalConsole": false,
         }
     ]
 }

@@ -14,7 +14,7 @@
                 "${workspaceFolder}\\include",
                 "${file}",
                 "-o",
-                "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}\\build\\cpp.exe"
             ],
             "group": { "kind": "build", "isDefault": true },
             "problemMatcher": {
@@ -31,16 +31,6 @@
                     "message": 5
                 }
             }
-        },
-        
-        {
-            "label": "execute with cmd",
-            "command": "cmd.exe",
-            "args": [
-                "/C",
-                "\"${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe & pause\""
-            ],
-            "group": { "kind": "test", "isDefault": false }
         }
     ]
 }
