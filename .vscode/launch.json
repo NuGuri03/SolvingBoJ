@@ -5,7 +5,7 @@
             "type": "cppdbg",
             "request": "launch",
             "name": "cpp",
-            // "preLaunchTask": "compile for C/C++",
+            "args": [],
             "program": "${workspaceFolder}/build/cpp.exe",
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
