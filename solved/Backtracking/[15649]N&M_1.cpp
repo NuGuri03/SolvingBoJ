@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 
-void BackTracking(std::vector<int>& vec, int arr[],bool visited[], int Cnt, int n, int m) {
-    if (Cnt == m) {
+void backTracking(std::vector<int>& vec, int arr[], bool visited[], int cnt, int n, int m) {
+    if (cnt == m) {
         for (int i = 0; i < vec.size(); i++) {
             std::cout << vec[i] << ' '; 
         }
@@ -13,7 +13,7 @@ void BackTracking(std::vector<int>& vec, int arr[],bool visited[], int Cnt, int 
         if (visited[i] == true) continue;
         visited[i] = true;
         vec.push_back(arr[i]);
-        BackTracking(vec, arr, visited, Cnt + 1, n, m);
+        backTracking(vec, arr, visited, cnt + 1, n, m);
         vec.pop_back();
         visited[i] = false;
     }
@@ -29,5 +29,5 @@ int main() {
     int* arr = new int[n];
     for (int i = 1; i <= n; i++) arr[i - 1] = i;
 
-    BackTracking(vec, arr, selected, 0, n, m);
+    backTracking(vec, arr, selected, 0, n, m);
 }
