@@ -5,17 +5,16 @@ using namespace std;
 int n, k;
 vector<int> coin;
 
-int countCoin() {
-    // dp 정의
+int count_coin() {
     vector<int> dp(k + 1, 0);
-    for (int i = 0; i < n; i++) {
-        for (int j = 1; j <= k; j++) {
-            if (j % coin[i] == 0) dp[j]++;
-        }
-        for (int j = 1; j <= k; j++) cout << dp[j] << ' ';
-        cout << '\n';
-    }
+    dp[0] = 1;
 
+    for (int i = 0; i < n; i++) {
+        for (int j = coin[i]; j <= k; j++) {
+            dp[j] += dp[j - coin[i]];
+        }
+    }
+    
     return dp[k];
 }
 
@@ -27,5 +26,5 @@ int main() {
     for (int i = 0; i < n; i++) cin >> coin[i];
     sort(coin.begin(), coin.end());
 
-    cout << countCoin() << '\n';
+    cout << count_coin() << '\n';
 }

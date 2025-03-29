@@ -4,12 +4,12 @@
         {
             "type": "cppdbg",
             "request": "launch",
-            "name": "cpp",
-            "args": [],
+            "name": "run c++",
             "program": "${workspaceFolder}/build/cpp.exe",
+            "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
-            "externalConsole": false,
+            "externalConsole": false
         }
     ]
 }
