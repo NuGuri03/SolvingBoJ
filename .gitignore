@@ -79,4 +79,4 @@ $RECYCLE.BIN/
 
 # others
 note.cpp
-.vscode
+.vscode/*
