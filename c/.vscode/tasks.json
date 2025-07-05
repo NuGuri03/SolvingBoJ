@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "runner": "terminal",
+    "type": "shell",
+    "echoCommand": true,
+    "presentation": { "reveal": "always" },
+    "tasks": [
+        {
+            "label": "compile for c",
+            "command": "gcc",
+            "args": [
+                "-std=c17",
+                "-g",
+                "-I",
+                "${workspaceFolder}\\include",
+                "${file}",
+                "-o",
+                "${workspaceFolder}\\build\\a.exe"
+            ],
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": {
+                "fileLocation": [
+                    "relative",
+                    "${workspaceFolder}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        }
+    ]
+}
